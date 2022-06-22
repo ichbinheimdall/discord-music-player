@@ -11,7 +11,7 @@ client.commands = new Collection();
 client.aliases = new Collection();
 
 client.on('ready', async () => { 
-  client.user.setActivity(`${BotConf.CustomStatus}`, { type: "STREAMING", url: "https://www.twitch.tv/klanter"})
+  client.user.setActivity(`${BotConf.CustomStatus}`, { type: "STREAMING", url: "https://www.twitch.tv/ichbinheimdall"})
       .then(console.log('PASS - '+ client.user.tag +' ismiyle API\'ye bağlanıldı ve bot hazır durumda.'))
       .catch(() => console.log('ERROR - Belirsiz bir hata ile karşılaşıldı.'));
 }); 
