@@ -1,8 +1,8 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports.config = {
-    name: "ping",
-    aliases: ["ms", "gecikme"],
+    name: "info",
+    aliases: ["bilgilendirme", "bilgi"],
 };
 
 module.exports.sex = async (client, message, args, config) => {
