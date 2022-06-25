@@ -16,7 +16,7 @@ message.channel.send(new MessageEmbed()
 .setTimestamp()
 .setDescription(`
 <a:hologram:907617268173783060> [Botu sunucuna eklemek için tıkla!](https://discord.com/oauth2/authorize?client_id=911395278161080351&permissions=8&scope=bot%20applications.commands)
-<a:hologram:907617268173783060> [Destek sunucusuna katılmak için tıkla!](https://discord.com/invite/d44zqCemN3)
+<a:hologram:907617268173783060> [Destek sunucusuna katılmak için tıkla!](https://discord.com/invite/b8e2EKJpry)
 <a:hologram:907617268173783060> Top.gg üzerinde oy yakında..
 `))
 
