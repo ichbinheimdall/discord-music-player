@@ -17,6 +17,8 @@
     "@discordjs/opus": "^0.3.3",
     "discord-player": "^3.3.2",
     "discord.js": "^12.5.1",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
     "ffmpeg-static": "^4.3.0"
   },
   "engines": {
