@@ -33,9 +33,9 @@ client.on('message', async message => {
   let command = message.content.split(' ')[0].slice(prefix.length); 
   let load = client.commands.get(command) || client.commands.get(client.aliases.get(command));
   if (load){
-   if (!message.member.hasPermission(8) && client.cooldown.has(message.author.id)) return message.channel.send(new MessageEmbed().setDescription('**5** Saniyede bir komut kullanabilirsin.').setFooter(BotConf.EmbedFooter).setColor('#EB459E').setTimestamp());
+   if (!message.member.hasPermission(8) && client.cooldown.has(message.author.id)) return message.channel.send(new MessageEmbed().setDescription('**3** Saniyede bir komut kullanabilirsin.').setFooter(BotConf.EmbedFooter).setColor('#EB459E').setTimestamp());
     client.cooldown.add(message.author.id);
-    setTimeout(() => client.cooldown.delete(message.author.id), 5000);
+    setTimeout(() => client.cooldown.delete(message.author.id), 3000);
     load.sex(client, message, args, config);
   };
 });
