@@ -2,6 +2,9 @@
 const { Client, Collection, MessageEmbed, Message } = require("discord.js");
 const { readdir } = require("fs");
 const { Player } = require('discord-player');
+const moment = require("moment")
+require("moment-duration-format")
+moment.locale("tr")
 
 const BotConf = require('./config.json');
 const client = new Client();
