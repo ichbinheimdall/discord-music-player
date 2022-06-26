@@ -1,7 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const moment = require("moment")
 require("moment-duration-format")
-moment.locale("tr")
 
 module.exports.config = {
     name: "info",
