@@ -1,3 +1,2 @@
-#Discord Music Player on Voice Channel BOT
-
-"discord.js": "^12.5.1"
+# Music Player for Discord, on Voice Channel
+## discord.js v12.5 & ffmpeg v4.3
