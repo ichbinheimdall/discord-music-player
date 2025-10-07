@@ -1,5 +1,5 @@
 {
-  "Client_Token": "X",
+  "Client_Token": "Client_Token",
   "BotPrefixes": ["-"],
   "EmbedFooter":"-davet | -yardım",
   "CustomStatus": "-davet | -yardım"
