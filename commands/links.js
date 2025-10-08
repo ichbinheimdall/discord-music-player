@@ -1,11 +1,11 @@
 const { MessageEmbed } = require('discord.js');
 
 module.exports.config = { 
-     name: 'davet',
-     aliases: ['destek','oy','invite','ekle','add','vote','support',]
+     name: 'invite',
+    aliases: ['davet','destek','oy','invite','ekle','add','vote','support','invite-link','links']
  }
  
- module.exports.sex = async(client, message, args, config) => {
+ module.exports.hmd = async(client, message, args, config) => {
 
 let prefix = config.BotPrefixes[Math.floor(Math.random() * config.BotPrefixes.length)];
 
@@ -15,9 +15,9 @@ message.channel.send(new MessageEmbed()
 .setThumbnail(client.user.avatarURL())
 .setTimestamp()
 .setDescription(`
-<a:hologram:990277266892263475> [Botu sunucuna eklemek için tıkla!](https://discord.com/oauth2/authorize?client_id=911395278161080351&permissions=8&scope=bot%20applications.commands)
-<a:hologram:990277266892263475> [Destek sunucusuna katılmak için tıkla!](https://discord.com/invite/b8e2EKJpry)
-<a:hologram:990277266892263475> Top.gg üzerinden oy yakında..
+🚀 [Click here to invite the bot to your server](${config.InviteLink})
+🚀 [Click here to join the support server](${config.SupportServer})
+🚀 [Click here to vote on Top.gg](${config.VoteLink})
 `))
 
 };
