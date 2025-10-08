@@ -1,6 +1,11 @@
 {
   "Client_Token": "Client_Token",
+  "DeveloperID": "YOUR_DISCORD_ID",
   "BotPrefixes": ["-"],
-  "EmbedFooter":"-davet | -yardım",
-  "CustomStatus": "-davet | -yardım"
+  "CustomStatus": "-invite | -help",
+  "EmbedFooter": "-invite | -help",
+  "StreamingURL": "https://www.twitch.tv/TWITCH_USERNAME",
+  "InviteLink": "https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot%20applications.commands",
+  "SupportServer": "https://discord.com/invite/YOUR_SUPPORT_SERVER",
+  "VoteLink": "https://top.gg/bot/YOUR_BOT_ID/vote"
 }

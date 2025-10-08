@@ -1,17 +1,17 @@
 {
-  "name": "musician-bot",
+  "name": "discord-music-player",
+  "version": "1.5.",
+  "description": "A Discord music bot using discord.js and discord-player.",
+  "main": "app.js",
   "author": "Heimdall",
   "license": "ISC",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "test": "node app.js"
-  },
   "repository": {
     "type": "git",
-    "url": "a"
+    "url": "https://github.com/ichbinheimdall/discord-music-player.git"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "@discordjs/opus": "^0.3.3",
