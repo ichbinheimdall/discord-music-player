@@ -161,3 +161,7 @@ Keep changes focused and include tests or reproducible steps when possible.
 1. Set `CLIENT_TOKEN` (or update `config.json`) and run `node app.js`.
 2. Invite the bot to a test server and join a voice channel.
 3. Use `-play <song>` to confirm the bot can search and play audio.
+
+## Attribution
+
+This project is based on work by [Klanter](https://github.com/klanter1337/Music-Bot).
