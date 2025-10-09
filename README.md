@@ -28,8 +28,8 @@ Optional: use `ffmpeg-static` in the project if you want a bundled binary instea
 1. Clone the repo and open it:
 
 ```bash
-git clone https://github.com/ichbinheimdall/discord-music-player.git
-cd discord-music-player
+git clone https://github.com/ichbinheimdall/musician-bot.git
+cd musician-bot
 ```
 
 2. Install dependencies:
