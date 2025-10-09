@@ -1,5 +1,5 @@
 {
-  "name": "discord-music-player",
+  "name": "musician-bot",
   "version": "1.5.",
   "description": "A Discord music bot using discord.js and discord-player.",
   "main": "app.js",
@@ -7,7 +7,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ichbinheimdall/discord-music-player.git"
+    "url": "https://github.com/ichbinheimdall/musician-bot.git"
   },
   "scripts": {
     "start": "node app.js",
