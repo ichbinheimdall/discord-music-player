@@ -1,12 +1,18 @@
-//Modules
-const { Client, Collection, MessageEmbed, Message } = require("discord.js");
+// Load environment variables from .env file
+require('dotenv').config();
+
+// Modules
+const { Client, Collection, MessageEmbed } = require("discord.js");
 const { readdir } = require("fs");
 const { Player } = require('discord-player');
-const moment = require("moment")
-require("moment-duration-format")
-moment.locale("en")
+const moment = require("moment");
+require("moment-duration-format");
+moment.locale("en");
 
+// Load config and override with environment variables
 const BotConf = require('./config.json');
+BotConf.Client_Token = process.env.CLIENT_TOKEN || BotConf.Client_Token;
+BotConf.DeveloperID = process.env.DEVELOPER_ID || BotConf.DeveloperID;
 const client = new Client();
 client.cooldown = new Set();
 client.player = new Player(client);

@@ -49,31 +49,22 @@ npm start
 
 ## ⚙️ Configuration
 
-### Option 1: Environment Variables (Recommended)
+### Step 1: Create config.json
 
-Create a `.env` file or set environment variables:
+Copy the example config file:
 
 ```bash
-CLIENT_TOKEN=your_discord_bot_token
+cp config.example.json config.json
 ```
-
-Then modify `app.js` to read from environment:
-
-```js
-const BotConf = require('./config.json');
-BotConf.Client_Token = process.env.CLIENT_TOKEN || BotConf.Client_Token;
-```
-
-### Option 2: config.json (Local Development)
 
 Edit `config.json` with your values:
 
 ```json
 {
   "Client_Token": "YOUR_BOT_TOKEN",
-  "DeveloperID": "YOUR_DISCORD_ID",
+  "DeveloperID": "YOUR_DISCORD_USER_ID",
   "BotPrefixes": ["-"],
-  "CustomStatus": "-help",
+  "CustomStatus": "-help | Musician Bot",
   "EmbedFooter": "Musician Bot",
   "StreamingURL": "https://www.twitch.tv/discord",
   "InviteLink": "YOUR_INVITE_URL",
@@ -82,7 +73,24 @@ Edit `config.json` with your values:
 }
 ```
 
-> ⚠️ **Never commit your bot token to a public repository!**
+### Step 2: Environment Variables (Recommended for Production)
+
+For production deployments, use environment variables instead of hardcoding tokens:
+
+```bash
+cp .env.example .env
+```
+
+Edit `.env`:
+
+```bash
+CLIENT_TOKEN=your_discord_bot_token
+DEVELOPER_ID=your_discord_user_id
+```
+
+Environment variables override `config.json` values automatically.
+
+> ⚠️ **Security:** `config.json` and `.env` are gitignored. Never commit tokens to version control!
 
 ## 🎮 Commands
 
@@ -108,11 +116,17 @@ Default prefix: `-`
 
 ```
 musician-bot/
-├── app.js              # Main entry point & player events
-├── config.json         # Bot configuration
-├── package.json        # Dependencies & scripts
-├── Procfile            # Heroku deployment
-├── commands/           # Command implementations
+├── app.js               # Main entry point & player events
+├── config.json          # Bot configuration (create from example)
+├── config.example.json  # Configuration template
+├── .env                 # Environment variables (create from example)
+├── .env.example         # Environment template
+├── .gitignore           # Git ignore rules
+├── package.json         # Dependencies & scripts
+├── Procfile             # Heroku deployment
+├── CONTRIBUTING.md      # Contribution guidelines
+├── LICENSE              # MIT License
+├── commands/            # Command implementations
 │   ├── play.js
 │   ├── pause.js
 │   ├── resume.js
