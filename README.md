@@ -1,167 +1,180 @@
+# Musician Bot
 
-# Discord Music Player
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-14.x-green.svg)](https://nodejs.org/)
+[![discord.js](https://img.shields.io/badge/discord.js-v12-blue.svg)](https://discord.js.org/)
 
-A lightweight Discord music bot skeleton built on discord.js and discord-player. This repo gives you a ready-to-run bot with common music controls (play, pause, skip, queue, loop, etc.), a simple command structure under `commands/`, and pre-wired player events.
+A lightweight Discord music bot built with **discord.js** and **discord-player**. Ready-to-run with common music controls, modular command structure, and pre-wired player events.
 
-## Highlights
+## ✨ Features
 
-- Uses `discord.js` and `discord-player` for playback
-- Modular commands in the `commands/` folder
-- Pre-wired player event handlers with helpful embed messages
-- `Procfile` included for Heroku-style deployment
+- 🎵 **Full music playback** — play, pause, resume, skip, stop, loop
+- 📋 **Queue management** — view, shuffle, and clear the queue
+- 🎨 **Rich embeds** — beautiful feedback messages for all interactions
+- ⚡ **Modular commands** — easily extend with new features
+- 🚀 **Heroku-ready** — includes `Procfile` for quick deployment
+- 🔒 **Security-first** — environment variable support for tokens
 
-## Prerequisites
+## 📦 Prerequisites
 
-- Node.js (recommended v16+)
-- npm (or yarn)
-- A Discord bot token (create one at https://discord.com/developers)
-- FFmpeg installed on the host system (required by many audio backends). On macOS:
+- **Node.js** v14+ (recommended v16+)
+- **npm** or **yarn**
+- **FFmpeg** installed on the host system
+- A [Discord Bot Token](https://discord.com/developers/applications)
 
 ```bash
+# macOS
 brew install ffmpeg
+
+# Ubuntu/Debian
+sudo apt install ffmpeg
+
+# Or use ffmpeg-static (bundled in dependencies)
 ```
 
-Optional: use `ffmpeg-static` in the project if you want a bundled binary instead of installing system-wide FFmpeg.
-
-## Quick setup
-
-1. Clone the repo and open it:
+## 🚀 Quick Start
 
 ```bash
+# Clone the repository
 git clone https://github.com/ichbinheimdall/musician-bot.git
 cd musician-bot
+
+# Install dependencies
+npm install
+
+# Configure the bot (see Configuration section)
+# Then start:
+npm start
 ```
 
-2. Install dependencies:
+## ⚙️ Configuration
+
+### Option 1: Environment Variables (Recommended)
+
+Create a `.env` file or set environment variables:
 
 ```bash
-npm install
-# or
-yarn
+CLIENT_TOKEN=your_discord_bot_token
 ```
 
-3. Configure the bot. Two approaches:
-
-- Edit `config.json` (simple local testing). Fill `Client_Token` and other placeholders.
-- Preferred for production: use environment variables and fall back to `config.json`.
-
-Example `config.json` (already present in repo):
-
-```json
-{
-  "Client_Token": "Client_Token",
-  "DeveloperID": "YOUR_DISCORD_ID",
-  "BotPrefixes": ["-"],
-  "CustomStatus": "-invite | -help",
-  "EmbedFooter": "-invite | -help",
-  "StreamingURL": "https://www.twitch.tv/TWITCH_USERNAME",
-  "InviteLink": "https://discord.com/api/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot%20applications.commands",
-  "SupportServer": "https://discord.com/invite/YOUR_SUPPORT_SERVER",
-  "VoteLink": "https://top.gg/bot/YOUR_BOT_ID/vote"
-}
-```
-
-A small change in `app.js` lets the bot read the token from an environment variable if present (recommended for hosting):
+Then modify `app.js` to read from environment:
 
 ```js
 const BotConf = require('./config.json');
 BotConf.Client_Token = process.env.CLIENT_TOKEN || BotConf.Client_Token;
 ```
 
-4. Start locally:
+### Option 2: config.json (Local Development)
+
+Edit `config.json` with your values:
+
+```json
+{
+  "Client_Token": "YOUR_BOT_TOKEN",
+  "DeveloperID": "YOUR_DISCORD_ID",
+  "BotPrefixes": ["-"],
+  "CustomStatus": "-help",
+  "EmbedFooter": "Musician Bot",
+  "StreamingURL": "https://www.twitch.tv/discord",
+  "InviteLink": "YOUR_INVITE_URL",
+  "SupportServer": "YOUR_SUPPORT_SERVER",
+  "VoteLink": "YOUR_TOPGG_VOTE_LINK"
+}
+```
+
+> ⚠️ **Never commit your bot token to a public repository!**
+
+## 🎮 Commands
+
+Default prefix: `-`
+
+| Command | Description |
+|---------|-------------|
+| `-play <song>` | Play a song (search term or URL) |
+| `-pause` | Pause playback |
+| `-resume` | Resume playback |
+| `-skip` | Skip to the next track |
+| `-stop` | Stop playback and clear queue |
+| `-loop` | Toggle loop mode |
+| `-mix` | Shuffle the queue |
+| `-np` | Show now playing info |
+| `-list` | Display the queue |
+| `-clear-list` | Clear the queue |
+| `-ping` | Check bot latency |
+| `-help` | Show all commands |
+| `-links` | Get invite/support links |
+
+## 📁 Project Structure
+
+```
+musician-bot/
+├── app.js              # Main entry point & player events
+├── config.json         # Bot configuration
+├── package.json        # Dependencies & scripts
+├── Procfile            # Heroku deployment
+├── commands/           # Command implementations
+│   ├── play.js
+│   ├── pause.js
+│   ├── resume.js
+│   ├── skip.js
+│   ├── stop.js
+│   ├── loop.js
+│   ├── mix.js
+│   ├── np.js
+│   ├── list.js
+│   ├── clear-list.js
+│   ├── ping.js
+│   ├── help.js
+│   ├── info.js
+│   └── links.js
+└── README.md
+```
+
+## 🚀 Deployment
+
+### Heroku
+
+1. Create a Heroku app
+2. Set `CLIENT_TOKEN` in Config Vars
+3. Deploy via Git or GitHub integration
+4. The included `Procfile` handles startup
+
+### Other Platforms
+
+Set the `CLIENT_TOKEN` environment variable and run:
 
 ```bash
-node app.js
+npm start
 ```
 
-If configured correctly the bot will log in and set its activity/status.
+## 🔧 Troubleshooting
 
-## Gateway intents (discord.js v13+)
+| Issue | Solution |
+|-------|----------|
+| Bot doesn't join voice | Check `CONNECT` and `SPEAK` permissions |
+| No audio | Ensure FFmpeg is installed and accessible |
+| Login failed | Verify your bot token is correct and not revoked |
+| Commands not working | Check the prefix and bot permissions in the channel |
 
-If you're using discord.js v13 or newer you must pass gateway intents when creating the `Client`. Example:
+## 🔐 Security
 
-```js
-const { Client, Intents } = require('discord.js');
-const client = new Client({ intents: [
-  Intents.FLAGS.GUILDS,
-  Intents.FLAGS.GUILD_VOICE_STATES,
-  Intents.FLAGS.GUILD_MESSAGES
-]});
-```
+- Use environment variables for sensitive data
+- Never commit tokens to version control
+- Use `.gitignore` to exclude config files with secrets
 
-Enable privileged intents (if you use them) on the bot page in the Discord Developer Portal when required.
+## 🤝 Contributing
 
-## Commands
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-All commands use the prefix configured in `config.json` (default: `-`). Implementations live in the `commands/` folder. Main commands included:
+## 📄 License
 
-- `play` — Play a track (search term or URL). Example: `-play <song or url>`
-- `pause` — Pause playback
-- `resume` — Resume playback
-- `skip` — Skip the current track
-- `stop` — Stop playback and clear the queue
-- `loop` — Toggle loop mode
-- `mix` — Shuffle/mix the queue
-- `list` — Show the current queue
-- `clear-list` — Clear the current queue
-- `np` — Now playing info
-- `info` — Bot/server information
-- `links` — Invite/support/vote links from `config.json`
-- `help` — Show help text
-- `ping` — Latency check
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
 
-Open the `commands/` files to customize behavior or help text.
+## 🙏 Acknowledgments
 
-## Player events and feedback
-
-`app.js` wires `client.player` events to send embed messages for events like `trackStart`, `trackAdd`, `playlistAdd`, `noResults`, `queueEnd`, `channelEmpty`, and normalized error handling. Those embeds use `EmbedFooter` from `config.json` and provide consistent feedback to users.
-
-## Deployment
-
-The repo includes a `Procfile` for Heroku. For production, avoid committing your token. Instead, set an environment variable (recommended):
-
-1. Add the token to your host's config (Heroku Config Vars, Docker secrets, systemd unit, etc.) as `CLIENT_TOKEN`.
-2. Ensure `app.js` reads `process.env.CLIENT_TOKEN` (see example above).
-3. Deploy and let the `Procfile` start the bot.
-
-When creating an invite URL, give the bot permissions to connect and speak in voice channels (CONNECT, SPEAK). The sample `InviteLink` in `config.json` uses `permissions=8` (administrator) which is broader than required for most bots — prefer least privilege.
-
-## Common troubleshooting
-
-- Bot doesn't join voice channel: check the bot has `CONNECT` and `SPEAK` permissions and that FFmpeg is installed and accessible.
-- No audio or distorted playback: ensure a compatible FFmpeg is installed (system or `ffmpeg-static`).
-- Bot fails to login: verify the token (and that it isn't revoked) and confirm `CLIENT_TOKEN`/`config.json` values.
-- Commands not responding: confirm messages start with the configured prefix and the bot has permission to read/send messages in the channel.
-- Missing intents errors: add the required gateway intents as shown above and enable them in the Developer Portal if they're privileged.
-
-## Security notes
-
-- Never commit your bot token to a public repository.
-- Use environment variables or secret managers for production deployments.
-
-## Contributing
-
-Contributions welcome. Suggested flow:
-
-1. Fork the repo
-2. Create a branch for your change
-3. Open a pull request with a clear description and manual test steps
-
-Keep changes focused and include tests or reproducible steps when possible.
-
-## Files of interest
-
-- `app.js` — Main bot entry and player event wiring
-- `config.json` — Default configuration (local testing / fallback)
-- `commands/` — Command implementations
-- `Procfile` — Heroku-style start file
-
-## Quick checklist (smoke test)
-
-1. Set `CLIENT_TOKEN` (or update `config.json`) and run `node app.js`.
-2. Invite the bot to a test server and join a voice channel.
-3. Use `-play <song>` to confirm the bot can search and play audio.
-
-## Attribution
-
-This project is based on work by [Klanter](https://github.com/klanter1337/Music-Bot).
+- Based on work by [Klanter](https://github.com/klanter1337/Music-Bot)
+- Built with [discord.js](https://discord.js.org/) and [discord-player](https://discord-player.js.org/)

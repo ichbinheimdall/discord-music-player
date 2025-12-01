@@ -1,14 +1,26 @@
 {
   "name": "musician-bot",
-  "version": "1.5.",
-  "description": "A Discord music bot using discord.js and discord-player.",
+  "version": "1.5.0",
+  "description": "A lightweight Discord music bot built with discord.js and discord-player",
   "main": "app.js",
-  "author": "Heimdall",
-  "license": "ISC",
+  "author": "ichbinheimdall",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/ichbinheimdall/musician-bot.git"
   },
+  "bugs": {
+    "url": "https://github.com/ichbinheimdall/musician-bot/issues"
+  },
+  "keywords": [
+    "discord",
+    "music",
+    "bot",
+    "discord.js",
+    "discord-player",
+    "voice",
+    "streaming"
+  ],
   "scripts": {
     "start": "node app.js",
     "test": "echo \"No tests specified\" && exit 0"
