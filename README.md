@@ -49,15 +49,9 @@ npm start
 
 ## ⚙️ Configuration
 
-### Step 1: Create config.json
+### Step 1: Edit config.json
 
-Copy the example config file:
-
-```bash
-cp config.example.json config.json
-```
-
-Edit `config.json` with your values:
+Update `config.json` with your values:
 
 ```json
 {
@@ -90,7 +84,7 @@ DEVELOPER_ID=your_discord_user_id
 
 Environment variables override `config.json` values automatically.
 
-> ⚠️ **Security:** `config.json` and `.env` are gitignored. Never commit tokens to version control!
+> ⚠️ **Security:** Never commit your bot token to version control!
 
 ## 🎮 Commands
 
@@ -117,9 +111,8 @@ Default prefix: `-`
 ```
 musician-bot/
 ├── app.js               # Main entry point & player events
-├── config.json          # Bot configuration (create from example)
-├── config.example.json  # Configuration template
-├── .env                 # Environment variables (create from example)
+├── config.json          # Bot configuration
+├── .env                 # Environment variables (create from .env.example)
 ├── .env.example         # Environment template
 ├── .gitignore           # Git ignore rules
 ├── package.json         # Dependencies & scripts
