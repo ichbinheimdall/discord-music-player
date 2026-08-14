@@ -156,4 +156,4 @@ MIT. See [LICENSE](LICENSE).
 
 ## Acknowledgements
 
-Based on work by [Klanter](https://github.com/klanter1337/Music-Bot). Built with [discord.js](https://discord.js.org/) and [discord-player](https://discord-player.js.org/).
+Based on work by Klanter. Built with [discord.js](https://discord.js.org/) and [discord-player](https://discord-player.js.org/).
